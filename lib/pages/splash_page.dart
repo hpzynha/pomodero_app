@@ -5,8 +5,7 @@ import 'package:pomodero_app/widgets/splash_animation_widget.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
-  final String assetName2 = 'assets/images/logo.svg';
-  final String assetName = 'assets/images/Logo Pomodero.jpg';
+  final String assetName2 = 'assets/images/logo_pomodero.svg';
 
   @override
   Widget build(BuildContext context) {
