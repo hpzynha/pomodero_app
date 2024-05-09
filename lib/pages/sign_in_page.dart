@@ -70,7 +70,29 @@ class _SignInPageState extends State<SignInPage> {
             primaryButton(onPress: () {}, title: 'Sign In'),
             const SizedBox(height: 15),
             connectWithButton(onPress: () {}, title: 'Sign In With Google'),
-            const SizedBox(height: 15),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Don't have an account?",
+                          style: PomoderoTextStyles.hintTex,
+                        ),
+                        textButton(
+                            text: 'Sign Up',
+                            onPress: () {},
+                            color: textDarkMode),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
