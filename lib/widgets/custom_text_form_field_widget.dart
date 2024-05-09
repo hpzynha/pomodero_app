@@ -69,8 +69,7 @@ class _CustomTextFormFieldWidgetState extends State<CustomTextFormFieldWidget> {
         const SizedBox(height: 10),
         Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-          ),
+              borderRadius: BorderRadius.circular(10), color: onyx),
           child: TextFormField(
             controller: widget.controller,
             keyboardType: TextInputType.emailAddress,
@@ -99,6 +98,13 @@ class _CustomTextFormFieldWidgetState extends State<CustomTextFormFieldWidget> {
               floatingLabelBehavior: FloatingLabelBehavior.always,
               contentPadding: const EdgeInsets.only(left: 8, bottom: 16),
               errorText: _showError ? errorText : null,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(color: springGreen),
+              ),
             ),
           ),
         ),

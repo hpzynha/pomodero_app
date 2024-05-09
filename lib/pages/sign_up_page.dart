@@ -81,11 +81,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Don't have an account?",
+                          "Already have an account?",
                           style: PomoderoTextStyles.hintTex,
                         ),
                         textButton(
-                            text: 'Sign Up',
+                            text: 'Sign In',
                             onPress: () {
                               Navigator.pushNamed(context, '/signInPage');
                             },
