@@ -92,3 +92,25 @@ Widget connectWithButton({
     ),
   );
 }
+
+Widget textButton({
+  required String text,
+  required Function() onPress,
+  required Color color,
+}) {
+  return TextButton(
+    onPressed: onPress,
+    style: ButtonStyle(
+      overlayColor: MaterialStateProperty.resolveWith<Color>(
+        (states) {
+          return hintColorGray
+              .withOpacity(0.1); // Set overlay color to transparent
+        },
+      ),
+    ),
+    child: Text(
+      text,
+      style: PomoderoTextStyles.smallText,
+    ),
+  );
+}

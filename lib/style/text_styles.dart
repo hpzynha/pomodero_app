@@ -31,5 +31,11 @@ class PomoderoTextStyles {
     fontWeight: FontWeight.bold,
     color: textDarkMode,
   );
+
+  static final TextStyle smallText = GoogleFonts.nunito(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: textDarkMode,
+  );
   // Adicione mais estilos conforme necessário...
 }

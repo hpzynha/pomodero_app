@@ -57,10 +57,20 @@ class _SignInPageState extends State<SignInPage> {
               showVisibilityIcon: true,
               fieldType: FieldType.email,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                textButton(
+                    text: 'Forgot password?',
+                    onPress: () {},
+                    color: textDarkMode),
+              ],
+            ),
             const SizedBox(height: 40),
             primaryButton(onPress: () {}, title: 'Sign In'),
-            const SizedBox(height: 10),
+            const SizedBox(height: 15),
             connectWithButton(onPress: () {}, title: 'Sign In With Google'),
+            const SizedBox(height: 15),
           ],
         ),
       ),
