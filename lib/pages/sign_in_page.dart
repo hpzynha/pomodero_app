@@ -21,57 +21,58 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgoundColorDarkMode,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 50,
-          horizontal: 20,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 10),
-            SvgPicture.asset(assetName),
-            const SizedBox(height: 10),
-            Text(
-              'Stay focused with the Pomodoro Technique',
-              style: PomoderoTextStyles.subtitleDarkMode,
-            ),
-            const SizedBox(height: 40),
-            CustomTextFormFieldWidget(
-              title: 'Email',
-              hintText: 'Enter your email',
-              controller: _emailController,
-              icon: const Icon(Icons.mail_outline),
-              obscureText: false,
-              showVisibilityIcon: false,
-              fieldType: FieldType.email,
-            ),
-            const SizedBox(height: 40),
-            CustomTextFormFieldWidget(
-              title: 'Password',
-              hintText: 'Enter your password',
-              controller: _passwordController,
-              icon: const Icon(Icons.lock_outline),
-              obscureText: true,
-              showVisibilityIcon: true,
-              fieldType: FieldType.email,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                textButton(
-                    text: 'Forgot password?',
-                    onPress: () {},
-                    color: textDarkMode),
-              ],
-            ),
-            const SizedBox(height: 40),
-            primaryButton(onPress: () {}, title: 'Sign In'),
-            const SizedBox(height: 15),
-            connectWithButton(onPress: () {}, title: 'Sign In With Google'),
-            Expanded(
-              child: Align(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 50,
+            horizontal: 20,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 10),
+              SvgPicture.asset(assetName),
+              const SizedBox(height: 10),
+              Text(
+                'Stay focused with the Pomodoro Technique',
+                style: PomoderoTextStyles.subtitleDarkMode,
+              ),
+              const SizedBox(height: 40),
+              CustomTextFormFieldWidget(
+                title: 'Email',
+                hintText: 'Enter your email',
+                controller: _emailController,
+                icon: const Icon(Icons.mail_outline),
+                obscureText: false,
+                showVisibilityIcon: false,
+                fieldType: FieldType.email,
+              ),
+              const SizedBox(height: 40),
+              CustomTextFormFieldWidget(
+                title: 'Password',
+                hintText: 'Enter your password',
+                controller: _passwordController,
+                icon: const Icon(Icons.lock_outline),
+                obscureText: true,
+                showVisibilityIcon: true,
+                fieldType: FieldType.email,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  textButton(
+                      text: 'Forgot password?',
+                      onPress: () {},
+                      color: textDarkMode),
+                ],
+              ),
+              const SizedBox(height: 40),
+              primaryButton(onPress: () {}, title: 'Sign In'),
+              const SizedBox(height: 15),
+              connectWithButton(onPress: () {}, title: 'Sign In With Google'),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+              Align(
                 alignment: Alignment.bottomCenter,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -92,8 +93,8 @@ class _SignInPageState extends State<SignInPage> {
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
