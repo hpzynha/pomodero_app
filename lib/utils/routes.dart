@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pomodero_app/pages/home_page.dart';
+import 'package:pomodero_app/pages/sign_in_page.dart';
 import 'package:pomodero_app/pages/splash_page.dart';
 
 class Routes {
@@ -7,6 +8,7 @@ class Routes {
       <String, WidgetBuilder>{
     '/': (context) => const SplashPage(),
     '/home': (context) => const HomePage(),
+    '/signInPage': (context) => const SignInPage(),
   };
 
   static String initial = '/';
