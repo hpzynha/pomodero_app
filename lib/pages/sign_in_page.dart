@@ -38,7 +38,7 @@ class _SignInPageState extends State<SignInPage> {
                 'Stay focused with the Pomodoro Technique',
                 style: PomoderoTextStyles.subtitleDarkMode,
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
               CustomTextFormFieldWidget(
                 title: 'Email',
                 hintText: 'Enter your email',
@@ -48,7 +48,7 @@ class _SignInPageState extends State<SignInPage> {
                 showVisibilityIcon: false,
                 fieldType: FieldType.email,
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
               CustomTextFormFieldWidget(
                 title: 'Password',
                 hintText: 'Enter your password',
@@ -67,7 +67,7 @@ class _SignInPageState extends State<SignInPage> {
                       color: textDarkMode),
                 ],
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
               primaryButton(onPress: () {}, title: 'Sign In'),
               const SizedBox(height: 15),
               connectWithButton(onPress: () {}, title: 'Sign In With Google'),
@@ -86,7 +86,9 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         textButton(
                             text: 'Sign Up',
-                            onPress: () {},
+                            onPress: () {
+                              Navigator.pushNamed(context, '/signUpPage');
+                            },
                             color: textDarkMode),
                       ],
                     ),
