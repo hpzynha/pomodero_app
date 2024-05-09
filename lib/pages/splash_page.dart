@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:pomodero_app/pages/sign_in_page.dart';
+import 'package:pomodero_app/pages/auth_page.dart';
 import 'package:pomodero_app/style/colors.dart';
 
 import 'package:pomodero_app/widgets/splash_animation_widget.dart';
@@ -35,7 +35,7 @@ class SplashPage extends StatelessWidget {
         ],
       ),
       duration: 2500,
-      nextScreen: const SignInPage(),
+      nextScreen: const AuthPage(),
       splashTransition: SplashTransition.fadeTransition,
       splashIconSize: 250,
       pageTransitionType: PageTransitionType.fade,

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pomodero_app/style/colors.dart';
@@ -16,6 +17,11 @@ class _SignInPageState extends State<SignInPage> {
   final String assetName = 'assets/images/logo_pomodero.svg';
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  void signUserIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text, password: _passwordController.text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +74,7 @@ class _SignInPageState extends State<SignInPage> {
                 ],
               ),
               const SizedBox(height: 20),
-              primaryButton(onPress: () {}, title: 'Sign In'),
+              primaryButton(onPress: signUserIn, title: 'Sign In'),
               const SizedBox(height: 15),
               connectWithButton(onPress: () {}, title: 'Sign In With Google'),
               SizedBox(height: MediaQuery.of(context).size.height * 0.1),
