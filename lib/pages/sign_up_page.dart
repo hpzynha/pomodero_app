@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pomodero_app/style/colors.dart';
 import 'package:pomodero_app/style/text_styles.dart';
+import 'package:pomodero_app/widgets/error_messages_widget.dart';
 import 'package:pomodero_app/widgets/buttons_widget.dart';
 import 'package:pomodero_app/widgets/custom_text_form_field_widget.dart';
 
@@ -18,6 +20,56 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _comfirmPasswordController =
       TextEditingController();
+
+  Future<void> signUserUp() async {
+    final email = _emailController.text.trim();
+    final password = _passwordController.text.trim();
+    final auth = FirebaseAuth.instance;
+
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Center(
+            child: CircularProgressIndicator(
+              color: engineeringOrange,
+            ),
+          );
+        });
+
+    try {
+      await auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      if (mounted) {
+        Navigator.pop(context);
+        Navigator.pushNamed(context, '/home');
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        if (mounted) {
+          Navigator.pop(context);
+        }
+        showErrorSnack('Email already in use. Please use a different email.');
+      } else {
+        if (mounted) {
+          Navigator.pop(context);
+          showErrorSnack('Something went wrong. Please try again.');
+        }
+      }
+    }
+  }
+
+  void showErrorSnack(String message) {
+    final snackBar = CustomSnackBar(
+      message: message,
+      backgroundColor: engineeringOrange,
+      textColor: textDarkMode,
+      duration: const Duration(seconds: 3),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +99,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 icon: const Icon(Icons.mail_outline),
                 obscureText: false,
                 showVisibilityIcon: false,
+                validateEmail: true,
                 fieldType: FieldType.email,
               ),
               const SizedBox(height: 20),
@@ -57,7 +110,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 icon: const Icon(Icons.lock_outline),
                 obscureText: true,
                 showVisibilityIcon: true,
-                fieldType: FieldType.email,
+                validateEmail: false,
+                fieldType: FieldType.password,
               ),
               const SizedBox(height: 20),
               CustomTextFormFieldWidget(
@@ -67,10 +121,11 @@ class _SignUpPageState extends State<SignUpPage> {
                 icon: const Icon(Icons.lock_outline),
                 obscureText: true,
                 showVisibilityIcon: true,
-                fieldType: FieldType.email,
+                validateEmail: false,
+                fieldType: FieldType.password,
               ),
               const SizedBox(height: 40),
-              primaryButton(onPress: () {}, title: 'Sign Up'),
+              primaryButton(onPress: signUserUp, title: 'Sign Up'),
               SizedBox(height: MediaQuery.of(context).size.height * 0.1),
               Align(
                 alignment: Alignment.bottomCenter,
@@ -81,11 +136,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Don't have an account?",
+                          "Already have an account?",
                           style: PomoderoTextStyles.hintTex,
                         ),
                         textButton(
-                            text: 'Sign Up',
+                            text: 'Sign In',
                             onPress: () {
                               Navigator.pushNamed(context, '/signInPage');
                             },

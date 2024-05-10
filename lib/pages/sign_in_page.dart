@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pomodero_app/style/colors.dart';
 import 'package:pomodero_app/style/text_styles.dart';
+import 'package:pomodero_app/widgets/error_messages_widget.dart';
 import 'package:pomodero_app/widgets/buttons_widget.dart';
 import 'package:pomodero_app/widgets/custom_text_form_field_widget.dart';
 
@@ -18,11 +19,47 @@ class _SignInPageState extends State<SignInPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  void signUserIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailController.text,
-      password: _passwordController.text,
-    );
+  Future<void> signUserIn() async {
+    final email = _emailController.text.trim();
+    final password = _passwordController.text.trim();
+    final auth = FirebaseAuth.instance;
+
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Center(
+            child: CircularProgressIndicator(
+              color: engineeringOrange,
+            ),
+          );
+        });
+
+    try {
+      await auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      if (mounted) {
+        Navigator.pop(context);
+      }
+    } on FirebaseAuthException {
+      if (mounted) {
+        Navigator.pop(context);
+      }
+      showErrorMessage();
+    }
+  }
+
+  void showErrorMessage() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return alertDialogWidget(
+              title: 'Worng email or password',
+              content: 'ajkhdsjka',
+              buttonText: 'OK',
+              onPress: () => Navigator.pop(context));
+        });
   }
 
   @override
@@ -54,6 +91,7 @@ class _SignInPageState extends State<SignInPage> {
                 icon: const Icon(Icons.mail_outline),
                 obscureText: false,
                 showVisibilityIcon: false,
+                validateEmail: true,
                 fieldType: FieldType.email,
               ),
               const SizedBox(height: 20),
@@ -64,7 +102,8 @@ class _SignInPageState extends State<SignInPage> {
                 icon: const Icon(Icons.lock_outline),
                 obscureText: true,
                 showVisibilityIcon: true,
-                fieldType: FieldType.email,
+                validateEmail: false,
+                fieldType: FieldType.password,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,

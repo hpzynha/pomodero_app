@@ -11,3 +11,7 @@ Color textLightMode = const Color(0xFF1B1B1B);
 Color hintColorGray = const Color(0xFF696969);
 
 Color engineeringOrange = const Color(0xFFD40202);
+
+Color onyx = const Color(0xFF353839);
+
+Color springGreen = const Color(0XFF04F16F);
