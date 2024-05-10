@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pomodero_app/utils/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -5,10 +6,17 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const PomoderoApp());
+  await EasyLocalization.ensureInitialized();
+  runApp(EasyLocalization(
+      supportedLocales: const [Locale('en', 'US'), Locale('pt', 'BR')],
+      startLocale: const Locale('en', 'US'),
+      fallbackLocale: const Locale('en', 'US'),
+      path: 'assets/translations/',
+      child: const PomoderoApp()));
 }
 
 class PomoderoApp extends StatelessWidget {
@@ -18,6 +26,10 @@ class PomoderoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: context.locale,
+      supportedLocales: context.supportedLocales,
+      localizationsDelegates: context.localizationDelegates,
+      localeResolutionCallback: (locale, supportedLocales) => locale,
       title: 'Pomodero App',
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.initial,

@@ -41,6 +41,7 @@ dependencies:
   page_transition: ^2.1.0
   firebase_auth: ^4.19.5
   firebase_core: ^2.31.0
+  easy_localization: ^3.0.6
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/translations/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
