@@ -91,6 +91,7 @@ class _SignInPageState extends State<SignInPage> {
                 icon: const Icon(Icons.mail_outline),
                 obscureText: false,
                 showVisibilityIcon: false,
+                validateEmail: true,
                 fieldType: FieldType.email,
               ),
               const SizedBox(height: 20),
@@ -101,7 +102,8 @@ class _SignInPageState extends State<SignInPage> {
                 icon: const Icon(Icons.lock_outline),
                 obscureText: true,
                 showVisibilityIcon: true,
-                fieldType: FieldType.email,
+                validateEmail: false,
+                fieldType: FieldType.password,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
