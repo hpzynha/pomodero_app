@@ -20,7 +20,7 @@ class TimerWidget extends StatelessWidget {
       children: [
         Text(
           formattedTime,
-          style: PomoderoTextStyles.buttonText,
+          style: PomoderoTextStyles.pomodoroTimer,
         ),
         const SizedBox(width: 5),
       ],

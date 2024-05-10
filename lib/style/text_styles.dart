@@ -38,5 +38,11 @@ class PomoderoTextStyles {
     color: textDarkMode,
   );
 
+  static final TextStyle pomodoroTimer = GoogleFonts.nunito(
+    fontSize: 96,
+    fontWeight: FontWeight.bold,
+    color: textDarkMode,
+  );
+
   // Adicione mais estilos conforme necessário...
 }
