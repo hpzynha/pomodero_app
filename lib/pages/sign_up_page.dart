@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pomodero_app/style/colors.dart';
 import 'package:pomodero_app/style/text_styles.dart';
+import 'package:pomodero_app/widgets/alert_dialog_widget.dart';
 import 'package:pomodero_app/widgets/buttons_widget.dart';
 import 'package:pomodero_app/widgets/custom_text_form_field_widget.dart';
 
@@ -18,6 +20,52 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _comfirmPasswordController =
       TextEditingController();
+
+  Future<void> signUserUp() async {
+    final email = _emailController.text.trim();
+    final password = _passwordController.text.trim();
+    final auth = FirebaseAuth.instance;
+
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Center(
+            child: CircularProgressIndicator(
+              color: engineeringOrange,
+            ),
+          );
+        });
+
+    try {
+      await auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      if (mounted) {
+        Navigator.pop(context);
+        Navigator.pushNamed(context, '/home');
+      }
+    } on FirebaseAuthException {
+      if (mounted) {
+        Navigator.pop(context);
+        showErrorMessage();
+      }
+      showErrorMessage();
+    }
+  }
+
+  void showErrorMessage() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return alertDialogWidget(
+              title: 'Worng email or password',
+              content: 'ajkhdsjka',
+              buttonText: 'OK',
+              onPress: () => Navigator.pop(context));
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +118,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 fieldType: FieldType.email,
               ),
               const SizedBox(height: 40),
-              primaryButton(onPress: () {}, title: 'Sign Up'),
+              primaryButton(onPress: signUserUp, title: 'Sign Up'),
               SizedBox(height: MediaQuery.of(context).size.height * 0.1),
               Align(
                 alignment: Alignment.bottomCenter,
