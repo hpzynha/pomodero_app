@@ -114,3 +114,23 @@ Widget textButton({
     ),
   );
 }
+
+Widget boxButton({
+  required String text,
+  required Function() onPress,
+  required Color buttonColor,
+  required Color buttonHoverColor,
+  required Color textColor,
+}) {
+  return OutlinedButton(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(buttonColor),
+        overlayColor: MaterialStateProperty.all(buttonHoverColor),
+        side: MaterialStateProperty.all(BorderSide.none),
+      ),
+      onPressed: onPress,
+      child: Text(
+        text,
+        style: PomoderoTextStyles.buttonText,
+      ));
+}

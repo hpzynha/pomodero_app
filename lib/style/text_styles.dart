@@ -27,7 +27,7 @@ class PomoderoTextStyles {
     color: textDarkMode,
   );
   static final TextStyle buttonText = GoogleFonts.nunito(
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: FontWeight.bold,
     color: textDarkMode,
   );
@@ -37,5 +37,6 @@ class PomoderoTextStyles {
     fontWeight: FontWeight.normal,
     color: textDarkMode,
   );
+
   // Adicione mais estilos conforme necessário...
 }
