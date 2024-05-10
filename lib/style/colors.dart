@@ -15,3 +15,5 @@ Color engineeringOrange = const Color(0xFFD40202);
 Color onyx = const Color(0xFF353839);
 
 Color springGreen = const Color(0XFF04F16F);
+
+Color aerospaceorange = const Color(0xFFFF4F00);
