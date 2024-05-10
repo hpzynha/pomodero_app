@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pomodero_app/style/colors.dart';
 import 'package:pomodero_app/style/text_styles.dart';
-import 'package:pomodero_app/widgets/alert_dialog_widget.dart';
+import 'package:pomodero_app/widgets/error_messages_widget.dart';
 import 'package:pomodero_app/widgets/buttons_widget.dart';
 import 'package:pomodero_app/widgets/custom_text_form_field_widget.dart';
 
@@ -45,25 +45,29 @@ class _SignUpPageState extends State<SignUpPage> {
         Navigator.pop(context);
         Navigator.pushNamed(context, '/home');
       }
-    } on FirebaseAuthException {
-      if (mounted) {
-        Navigator.pop(context);
-        showErrorMessage();
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        if (mounted) {
+          Navigator.pop(context);
+        }
+        showErrorSnack('Email already in use. Please use a different email.');
+      } else {
+        if (mounted) {
+          Navigator.pop(context);
+          showErrorSnack('Something went wrong. Please try again.');
+        }
       }
-      showErrorMessage();
     }
   }
 
-  void showErrorMessage() {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return alertDialogWidget(
-              title: 'Worng email or password',
-              content: 'ajkhdsjka',
-              buttonText: 'OK',
-              onPress: () => Navigator.pop(context));
-        });
+  void showErrorSnack(String message) {
+    final snackBar = CustomSnackBar(
+      message: message,
+      backgroundColor: engineeringOrange,
+      textColor: textDarkMode,
+      duration: const Duration(seconds: 3),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   @override

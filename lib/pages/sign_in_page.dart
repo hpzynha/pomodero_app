@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pomodero_app/style/colors.dart';
 import 'package:pomodero_app/style/text_styles.dart';
-import 'package:pomodero_app/widgets/alert_dialog_widget.dart';
+import 'package:pomodero_app/widgets/error_messages_widget.dart';
 import 'package:pomodero_app/widgets/buttons_widget.dart';
 import 'package:pomodero_app/widgets/custom_text_form_field_widget.dart';
 
