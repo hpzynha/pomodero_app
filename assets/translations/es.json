@@ -1,5 +1,42 @@
 {
     "pomodero": {
-        "pomodero_message": "Mantente enfocado con la técnica Pomodoro"       
+    "pomodero_message": "Mantente enfocado con la Técnica Pomodoro"
+    },
+    "signIn": {
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "signIn": "Iniciar sesión",
+    "loginToUseTheApp": "Inicia sesión para usar la aplicación",
+    "enterEmail": "Ingresa tu correo electrónico",
+    "enterPassword": "Ingresa tu contraseña",
+    "fieldCannotBeEmpty": "El campo no puede estar vacío",
+    "signInWithGoogle": "Iniciar sesión con Google",
+    "dontHaveAnAccount": "¿No tienes una cuenta?",
+    "signUp": "Regístrate"
+    },
+    "signUp": {
+    "signUp": "Regístrate",
+    "personalInformation": "Ingresa tu información personal",
+    "enterName": "Ingresa tu nombre",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "enterEmail": "Ingresa tu correo electrónico",
+    "enterPassword": "Ingresa tu contraseña",
+    "comfirmPassword": "Confirmar contraseña",
+    "enterComfirmPassword": "Ingresa la contraseña de confirmación",
+    "minimumCharacters": "Mínimo de 8 caracteres",
+    "successCreatedAccount": "Tu cuenta ha sido creada con éxito. Por favor, verifica tu correo electrónico.",
+    "backToLogin": "Volver al inicio de sesión",
+    "passwordNotMacth": "Las contraseñas deben ser iguales",
+    "fieldCannotBeEmpty": "El campo no puede estar vacío",
+    "alreadyHaveAnAccount": "¿Ya tienes una cuenta?",
+    "signIn": "Iniciar sesión"
+    },
+    "errorMessages": {
+    "somethingWentWrong": "Algo salió mal. Por favor, inténtalo de nuevo.",
+    "emailInUse": "Correo electrónico ya en uso. Por favor, usa un correo electrónico diferente o inicia sesión.",
+    "errorMessageLogin": "Nombre de usuario o contraseña incorrectos. ¡Por favor, inténtalo de nuevo!",
+    "errorMessagePassword": "Las contraseñas no coinciden. Por favor, inténtalo de nuevo."
     }
-}
+    }

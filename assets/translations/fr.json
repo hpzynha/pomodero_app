@@ -1,5 +1,42 @@
 {
     "pomodero": {
-        "pomodero_message": "Restez concentré avec la technique Pomodoro"       
+    "pomodero_message": "Restez concentré avec la technique Pomodoro"
+    },
+    "signIn": {
+    "forgotPassword": "Mot de passe oublié ?",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "signIn": "Se connecter",
+    "loginToUseTheApp": "Connectez-vous pour utiliser l'application",
+    "enterEmail": "Entrez votre adresse e-mail",
+    "enterPassword": "Entrez votre mot de passe",
+    "fieldCannotBeEmpty": "Le champ ne peut pas être vide",
+    "signInWithGoogle": "Se connecter avec Google",
+    "dontHaveAnAccount": "Vous n'avez pas de compte ?",
+    "signUp": "S'inscrire"
+    },
+    "signUp": {
+    "signUp": "S'inscrire",
+    "personalInformation": "Entrez vos informations personnelles",
+    "enterName": "Entrez votre nom",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "enterEmail": "Entrez votre adresse e-mail",
+    "enterPassword": "Entrez votre mot de passe",
+    "comfirmPassword": "Confirmez le mot de passe",
+    "enterComfirmPassword": "Entrez le mot de passe de confirmation",
+    "minimumCharacters": "Minimum de 8 caractères",
+    "successCreatedAccount": "Votre compte a été créé avec succès. Veuillez vérifier votre e-mail.",
+    "backToLogin": "Retour à la connexion",
+    "passwordNotMacth": "Les mots de passe doivent être identiques",
+    "fieldCannotBeEmpty": "Le champ ne peut pas être vide",
+    "alreadyHaveAnAccount": "Vous avez déjà un compte ?",
+    "signIn": "Se connecter"
+    },
+    "errorMessages": {
+    "somethingWentWrong": "Quelque chose s'est mal passé. Veuillez réessayer.",
+    "emailInUse": "Adresse e-mail déjà utilisée. Veuillez utiliser une adresse e-mail différente ou vous connecter.",
+    "errorMessageLogin": "Nom d'utilisateur ou mot de passe incorrect. Veuillez réessayer !",
+    "errorMessagePassword": "Les mots de passe ne correspondent pas. Veuillez réessayer."
     }
-}
+    }
