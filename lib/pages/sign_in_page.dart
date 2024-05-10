@@ -46,20 +46,18 @@ class _SignInPageState extends State<SignInPage> {
       if (mounted) {
         Navigator.pop(context);
       }
-      showErrorMessage();
+      showErrorSnack('Something went wrong. Please try again.');
     }
   }
 
-  void showErrorMessage() {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return alertDialogWidget(
-              title: 'Worng email or password',
-              content: 'ajkhdsjka',
-              buttonText: 'OK',
-              onPress: () => Navigator.pop(context));
-        });
+  void showErrorSnack(String message) {
+    final snackBar = CustomSnackBar(
+      message: message,
+      backgroundColor: engineeringOrange,
+      textColor: textDarkMode,
+      duration: const Duration(seconds: 3),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   @override
