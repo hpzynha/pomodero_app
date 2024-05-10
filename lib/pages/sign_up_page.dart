@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -50,11 +51,11 @@ class _SignUpPageState extends State<SignUpPage> {
         if (mounted) {
           Navigator.pop(context);
         }
-        showErrorSnack('Email already in use. Please use a different email.');
+        showErrorSnack('errorMessages.emailInUse'.tr());
       } else {
         if (mounted) {
           Navigator.pop(context);
-          showErrorSnack('Something went wrong. Please try again.');
+          showErrorSnack('errorMessages.somethingWentWrong'.tr());
         }
       }
     }
@@ -88,13 +89,13 @@ class _SignUpPageState extends State<SignUpPage> {
               SvgPicture.asset(assetName),
               const SizedBox(height: 10),
               Text(
-                'Stay focused with the Pomodoro Technique',
+                'pomodero.pomodero_message'.tr(),
                 style: PomoderoTextStyles.subtitleDarkMode,
               ),
               const SizedBox(height: 20),
               CustomTextFormFieldWidget(
-                title: 'Email',
-                hintText: 'Enter your email',
+                title: 'signUp.email'.tr(),
+                hintText: 'signUp.enterEmail'.tr(),
                 controller: _emailController,
                 icon: const Icon(Icons.mail_outline),
                 obscureText: false,
@@ -104,8 +105,8 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               const SizedBox(height: 20),
               CustomTextFormFieldWidget(
-                title: 'Password',
-                hintText: 'Enter your password',
+                title: 'signUp.password'.tr(),
+                hintText: 'signUp.enterPassword'.tr(),
                 controller: _passwordController,
                 icon: const Icon(Icons.lock_outline),
                 obscureText: true,
@@ -115,8 +116,8 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               const SizedBox(height: 20),
               CustomTextFormFieldWidget(
-                title: 'Comfir Password',
-                hintText: 'Enter your password',
+                title: 'signUp.comfirmPassword'.tr(),
+                hintText: 'signUp.comfirmPassword'.tr(),
                 controller: _comfirmPasswordController,
                 icon: const Icon(Icons.lock_outline),
                 obscureText: true,
@@ -125,7 +126,10 @@ class _SignUpPageState extends State<SignUpPage> {
                 fieldType: FieldType.password,
               ),
               const SizedBox(height: 40),
-              primaryButton(onPress: signUserUp, title: 'Sign Up'),
+              primaryButton(
+                onPress: signUserUp,
+                title: 'signUp.signUp'.tr(),
+              ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.1),
               Align(
                 alignment: Alignment.bottomCenter,
@@ -136,11 +140,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Already have an account?",
+                          'signUp.alreadyHaveAnAccount'.tr(),
                           style: PomoderoTextStyles.hintTex,
                         ),
                         textButton(
-                            text: 'Sign In',
+                            text: 'signUp.signIn'.tr(),
                             onPress: () {
                               Navigator.pushNamed(context, '/signInPage');
                             },

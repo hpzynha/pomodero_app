@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -46,7 +47,7 @@ class _SignInPageState extends State<SignInPage> {
       if (mounted) {
         Navigator.pop(context);
       }
-      showErrorSnack('Something went wrong. Please try again.');
+      showErrorSnack('errorMessages.somethingWentWrong'.tr());
     }
   }
 
@@ -78,13 +79,13 @@ class _SignInPageState extends State<SignInPage> {
               SvgPicture.asset(assetName),
               const SizedBox(height: 10),
               Text(
-                'Stay focused with the Pomodoro Technique',
+                'pomodero.pomodero_message'.tr(),
                 style: PomoderoTextStyles.subtitleDarkMode,
               ),
               const SizedBox(height: 20),
               CustomTextFormFieldWidget(
-                title: 'Email',
-                hintText: 'Enter your email',
+                title: 'signIn.email'.tr(),
+                hintText: 'signIn.enterEmail'.tr(),
                 controller: _emailController,
                 icon: const Icon(Icons.mail_outline),
                 obscureText: false,
@@ -94,8 +95,8 @@ class _SignInPageState extends State<SignInPage> {
               ),
               const SizedBox(height: 20),
               CustomTextFormFieldWidget(
-                title: 'Password',
-                hintText: 'Enter your password',
+                title: 'signIn.password'.tr(),
+                hintText: 'signIn.enterPassword'.tr(),
                 controller: _passwordController,
                 icon: const Icon(Icons.lock_outline),
                 obscureText: true,
@@ -107,15 +108,16 @@ class _SignInPageState extends State<SignInPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   textButton(
-                      text: 'Forgot password?',
+                      text: 'signIn.forgotPassword'.tr(),
                       onPress: () {},
                       color: textDarkMode),
                 ],
               ),
               const SizedBox(height: 20),
-              primaryButton(onPress: signUserIn, title: 'Sign In'),
+              primaryButton(onPress: signUserIn, title: 'signIn.signIn'.tr()),
               const SizedBox(height: 15),
-              connectWithButton(onPress: () {}, title: 'Sign In With Google'),
+              connectWithButton(
+                  onPress: () {}, title: 'signIn.signInWithGoogle'.tr()),
               SizedBox(height: MediaQuery.of(context).size.height * 0.1),
               Align(
                 alignment: Alignment.bottomCenter,
@@ -126,11 +128,11 @@ class _SignInPageState extends State<SignInPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Don't have an account?",
+                          'signIn.dontHaveAnAccount'.tr(),
                           style: PomoderoTextStyles.hintTex,
                         ),
                         textButton(
-                            text: 'Sign Up',
+                            text: 'signIn.signUp'.tr(),
                             onPress: () {
                               Navigator.pushNamed(context, '/signUpPage');
                             },

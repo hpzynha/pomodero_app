@@ -3,23 +3,23 @@
         "pomodero_message": "Stay focused with the Pomodoro Technique"       
     },
 
-    "login": {
+    "signIn": {
         "forgotPassword": "Forgot password?",
         "email": "Email",
         "password": "Password",
-        "login": "Login",
+        "signIn": "Sign In",
         "loginToUseTheApp": "Login to use the App",
         "enterEmail": "Enter your email",
         "enterPassword": "Enter your password",
         "fieldCannotBeEmpty": "Field cannot be empty",
-        "orLoginWith": "Or login with",
-        "register": "Register"
+        "signInWithGoogle": "Sign In With Google",
+        "dontHaveAnAccount": "Don't have an account?",
+        "signUp": "Sign Up"
        
     },
-    "register": {
-        "register": "Register",
+    "signUp": {
+        "signUp": "Sign Up",
         "personalInformation": "Enter your personal information",
-        "name": "Name",
         "enterName": "Enter your name",
         "email": "Email",
         "password": "Password",
@@ -32,11 +32,12 @@
         "backToLogin": "Voltar para a tela de login",
         "passwordNotMacth": "As senhas devem ser iguais",
         "fieldCannotBeEmpty": "Field cannot be empty",
-        "orRegisterWith": "Or register with"
+        "alreadyHaveAnAccount": "Already have an account?",
+        "signIn": "Sign In"
     },
-    "errorMessageDialog":{
-        "titleDialog": "Login Failed",
-        "buttonDialog": "OK",
+    "errorMessages":{
+        "somethingWentWrong": "Something went wrong. Please try again.",
+        "emailInUse": "Email already in use. Please use a different email or Sign In",
         "errorMessageLogin": "Wrong username or password. Please try again!",
         "errorMessagePassword": "Passwords do not match. Please try again!"
 
