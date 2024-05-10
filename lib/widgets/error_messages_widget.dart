@@ -27,10 +27,11 @@ Widget alertDialogWidget({
 
 class CustomSnackBar extends SnackBar {
   CustomSnackBar({
+    super.key,
     required String message,
-    required Color backgroundColor,
+    required Color super.backgroundColor,
     required Color textColor,
-    required Duration duration,
+    required super.duration,
   }) : super(
           content: Text(
             message,
@@ -40,7 +41,5 @@ class CustomSnackBar extends SnackBar {
               color: textColor,
             ),
           ),
-          duration: duration,
-          backgroundColor: backgroundColor,
         );
 }
