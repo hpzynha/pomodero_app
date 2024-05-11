@@ -6,8 +6,10 @@ class TimerService extends ChangeNotifier {
   late Timer timer;
   double currentDuration = 1500;
   double _selectedTime = 1500;
+  bool _isTimerFinished = false;
 
   double get selectedTime => _selectedTime;
+  bool get isTimerFinished => _isTimerFinished;
 
   set selectedTime(double seconds) {
     _selectedTime = seconds;
@@ -16,22 +18,28 @@ class TimerService extends ChangeNotifier {
   }
 
   void startTimer() {
-    timer = Timer.periodic(
-      const Duration(seconds: 1),
-      (timer) {
-        if (currentDuration <= 0) {
-          timer.cancel();
-        } else {
-          currentDuration--;
-          notifyListeners();
-        }
-      },
-    );
+    _isTimerFinished = false;
+    if (!_isTimerFinished) {
+      timer = Timer.periodic(
+        const Duration(seconds: 1),
+        (timer) {
+          if (currentDuration <= 0) {
+            timer.cancel();
+            _isTimerFinished = true;
+            notifyListeners();
+          } else {
+            currentDuration--;
+            notifyListeners();
+          }
+        },
+      );
+    }
   }
 
   void cancelTimer() {
     timer.cancel();
     currentDuration = _selectedTime;
+    _isTimerFinished = false;
     notifyListeners();
   }
 }

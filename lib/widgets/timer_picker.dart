@@ -8,8 +8,7 @@ import 'package:provider/provider.dart';
 class TimerPicker extends StatefulWidget {
   final int selectedTimeInMinutes; // Add selectedTimeInMinutes parameter
 
-  const TimerPicker({Key? key, required this.selectedTimeInMinutes})
-      : super(key: key);
+  const TimerPicker({super.key, required this.selectedTimeInMinutes});
 
   @override
   State<TimerPicker> createState() => _TimerPickerState();
@@ -51,21 +50,6 @@ class _TimerPickerState extends State<TimerPicker> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                Positioned(
-                  height: 60,
-                  width: 65,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: hintColorGray,
-                        borderRadius: BorderRadius.circular(50),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey.shade300,
-                              blurRadius: 15.0,
-                              spreadRadius: 1.0),
-                        ]),
-                  ),
-                ),
                 Container(
                   child: NumberPicker(
                     textStyle: GoogleFonts.nunito(
@@ -82,7 +66,7 @@ class _TimerPickerState extends State<TimerPicker> {
                     step: 5,
                     itemHeight: 60,
                     itemWidth: 80,
-                    minValue: 5, // Minimum value in minutes
+                    minValue: 1, // Minimum value in minutes
                     maxValue: 150, // Maximum value in minutes
                     itemCount: itemCount,
                     value: _currentValueInMinutes,
@@ -103,3 +87,20 @@ class _TimerPickerState extends State<TimerPicker> {
     });
   }
 }
+
+
+  // Positioned(
+  //                 height: 60,
+  //                 width: 65,
+  //                 child: Container(
+  //                   decoration: BoxDecoration(
+  //                       color: hintColorGray,
+  //                       borderRadius: BorderRadius.circular(50),
+  //                       boxShadow: [
+  //                         BoxShadow(
+  //                             color: Colors.grey.shade300,
+  //                             blurRadius: 15.0,
+  //                             spreadRadius: 1.0),
+  //                       ]),
+  //                 ),
+  //               ),
