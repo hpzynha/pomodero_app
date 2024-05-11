@@ -44,6 +44,7 @@ dependencies:
   easy_localization: ^3.0.6
   provider: ^6.1.2
   ruler_scale_picker: ^0.1.0
+  numberpicker: ^2.1.2
 
 dev_dependencies:
   flutter_test:

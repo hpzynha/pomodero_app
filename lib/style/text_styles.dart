@@ -43,6 +43,11 @@ class PomoderoTextStyles {
     fontWeight: FontWeight.bold,
     color: textDarkMode,
   );
+  static final TextStyle selectTime = GoogleFonts.nunito(
+    fontSize: 38,
+    fontWeight: FontWeight.bold,
+    color: textDarkMode,
+  );
 
   // Adicione mais estilos conforme necessário...
 }

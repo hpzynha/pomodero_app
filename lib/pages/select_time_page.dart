@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pomodero_app/style/colors.dart';
+import 'package:pomodero_app/widgets/timer_picker.dart';
 
 import '../utils/time_list.dart';
 import '../widgets/buttons_widget.dart';
-import '../widgets/time_options.dart';
 
 class SelectTimePage extends StatefulWidget {
   const SelectTimePage({super.key});
@@ -21,7 +21,9 @@ class _SelectTimePageState extends State<SelectTimePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const SizedBox(height: 30),
-          const TimeOptions(),
+          const TimerPicker(
+            selectedTimeInMinutes: 1500,
+          ),
           const SizedBox(height: 30),
           boxButton(
             text: 'Done',
