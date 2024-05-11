@@ -92,7 +92,7 @@ class _HoldingButtonState extends State<HoldingButton>
                     ? widget.loadingIndicator
                     : Text(
                         widget.buttonText,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
           ),
         ],

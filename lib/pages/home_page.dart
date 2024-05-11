@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pomodero_app/pages/select_time_page.dart';
 
 import '../style/colors.dart';
 import '../widgets/buttons_widget.dart';
@@ -32,10 +31,7 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 15),
             GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SelectTimePage()));
+                  Navigator.pushNamed(context, '/selectTime');
                 },
                 child: const TimerWidget()),
             const SizedBox(height: 20),
