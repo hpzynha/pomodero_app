@@ -16,11 +16,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(onPressed: signUserOut, icon: const Icon(Icons.logout))
-        ],
-      ),
+      // appBar: AppBar(
+      //   actions: [
+      //     IconButton(onPressed: signUserOut, icon: const Icon(Icons.logout))
+      //   ],
+      // ),
       backgroundColor: backgoundColorDarkMode,
       body: Container(
         alignment: Alignment.center,

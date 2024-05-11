@@ -54,6 +54,13 @@
     "pomoderoActions":{
         "startFocus": "Start Focus",
         "passwordRequired": "Password is required"
+    },
+
+    "finishPage":{
+        "goodJob": " 🎉 Good Job!",
+        "congratulations": "Congratulations!",
+        "break": "Break"
     }
+
     
 }

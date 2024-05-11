@@ -66,7 +66,7 @@ class _TimerPickerState extends State<TimerPicker> {
                     step: 5,
                     itemHeight: 60,
                     itemWidth: 80,
-                    minValue: 1, // Minimum value in minutes
+                    minValue: 0, // Minimum value in minutes
                     maxValue: 150, // Maximum value in minutes
                     itemCount: itemCount,
                     value: _currentValueInMinutes,
