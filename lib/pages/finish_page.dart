@@ -34,15 +34,15 @@ class _FinishedPageState extends State<FinishedPage> {
               'finishPage.goodJob'.tr(),
               style: PomoderoTextStyles.selectTime,
             ),
-            SizedBox(
-              height: 30,
-            ),
+            const SizedBox(height: 30),
             boxButton(
               text: 'finishPage.break'.tr(),
               textColor: textDarkMode,
               buttonColor: onyx,
               buttonHoverColor: hintColorGray,
-              onPress: () {},
+              onPress: () {
+                Navigator.pushNamed(context, '/breakTimer');
+              },
             ),
           ],
         ),

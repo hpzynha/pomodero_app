@@ -60,6 +60,9 @@
         "goodJob": " 🎉 Good Job!",
         "congratulations": "Congratulations!",
         "break": "Break"
+    },
+    "breakTimer":{
+        "stopBreak": "Stop Break"
     }
 
     

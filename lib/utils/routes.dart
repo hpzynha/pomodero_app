@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pomodero_app/pages/auth_page.dart';
+import 'package:pomodero_app/pages/break_timer_page.dart';
 import 'package:pomodero_app/pages/finish_page.dart';
 import 'package:pomodero_app/pages/home_page.dart';
 import 'package:pomodero_app/pages/pomodoro_start_page.dart';
@@ -19,6 +20,7 @@ class Routes {
     '/pomodoroStart': (context) => const PomodoroStartPage(),
     '/selectTime': (context) => const SelectTimePage(),
     '/finished': (context) => const FinishedPage(),
+    '/breakTimer': (context) => const BreakTimerPage(),
   };
 
   static String initial = '/';

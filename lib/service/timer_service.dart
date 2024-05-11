@@ -7,6 +7,7 @@ class TimerService extends ChangeNotifier {
   double currentDuration = 1500;
   double _selectedTime = 1500;
   bool _isTimerFinished = false;
+  bool disposed = false;
 
   double get selectedTime => _selectedTime;
   bool get isTimerFinished => _isTimerFinished;
@@ -17,8 +18,15 @@ class TimerService extends ChangeNotifier {
     notifyListeners(); // Notify listeners after updating selected time
   }
 
+  void dispose() {
+    disposed = true;
+    timer.cancel();
+    super.dispose();
+  }
+
   void startTimer() {
     _isTimerFinished = false;
+    currentDuration = _selectedTime;
     if (!_isTimerFinished) {
       timer = Timer.periodic(
         const Duration(seconds: 1),

@@ -8,7 +8,7 @@ import '../widgets/holding_button.dart';
 import '../widgets/timer_widget.dart';
 
 class PomodoroStartPage extends StatefulWidget {
-  const PomodoroStartPage({Key? key}) : super(key: key);
+  const PomodoroStartPage({super.key});
 
   @override
   State<PomodoroStartPage> createState() => _PomodoroStartPageState();
