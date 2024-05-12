@@ -13,7 +13,7 @@ class TimerService extends ChangeNotifier {
 
   void start() {
     timerPlaying = true;
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (currentDuration == 0) {
         handleNextRound();
       } else {
