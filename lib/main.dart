@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:pomodero_app/service/time_service.dart';
 import 'package:pomodero_app/utils/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -11,12 +13,18 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await EasyLocalization.ensureInitialized();
-  runApp(EasyLocalization(
-      supportedLocales: const [Locale('en', 'US'), Locale('pt', 'BR')],
-      startLocale: const Locale('en', 'US'),
-      fallbackLocale: const Locale('en', 'US'),
-      path: 'assets/translations/',
-      child: const PomoderoApp()));
+  runApp(
+    ChangeNotifierProvider<TimerService>(
+      create: (_) => TimerService(),
+      child: EasyLocalization(
+        supportedLocales: const [Locale('en', 'US'), Locale('pt', 'BR')],
+        startLocale: const Locale('en', 'US'),
+        fallbackLocale: const Locale('en', 'US'),
+        path: 'assets/translations/',
+        child: const PomoderoApp(),
+      ),
+    ),
+  );
 }
 
 class PomoderoApp extends StatelessWidget {
