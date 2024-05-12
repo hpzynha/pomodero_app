@@ -12,6 +12,22 @@ class TimerService extends ChangeNotifier {
   String currentState = "FOCUS";
 
   void start() {
+    if (currentState == "BREAK" || currentState == "LONGBREAK") {
+      timerPlaying = false; // Do nothing, timer is paused
+    } else {
+      timerPlaying = true;
+      _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+        if (currentDuration == 0) {
+          handleNextRound();
+        } else {
+          currentDuration--;
+          notifyListeners();
+        }
+      });
+    }
+  }
+
+  void startBreak() {
     timerPlaying = true;
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (currentDuration == 0) {
@@ -51,21 +67,29 @@ class TimerService extends ChangeNotifier {
       selectedTime = 300;
       rounds++;
       goal++;
+      timerPlaying = false;
+      _timer.cancel();
     } else if (currentState == "BREAK") {
       currentState = "FOCUS";
       currentDuration = 1500;
       selectedTime = 1500;
+      _timer.cancel();
+      timerPlaying = false;
     } else if (currentState == "FOCUS" && rounds == 3) {
       currentState = "LONGBREAK";
       currentDuration = 1500;
       selectedTime = 1500;
       rounds++;
       goal++;
+      timerPlaying = false;
+      _timer.cancel();
     } else if (currentState == "LONGBREAK") {
       currentState = "FOCUS";
       currentDuration = 1500;
       selectedTime = 1500;
       rounds = 0;
+      _timer.cancel(); // Cancel the timer
+      timerPlaying = false;
     }
     notifyListeners();
   }

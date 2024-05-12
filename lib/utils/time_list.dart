@@ -1,5 +1,5 @@
 List<String> selectableTimes = [
-  "100",
+  "10",
   "300", // 5 minutes
   "600", // 10 minutes
   "900", // 15 minutes

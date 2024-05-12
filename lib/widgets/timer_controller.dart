@@ -21,14 +21,27 @@ class _TimerControllerState extends State<TimerController> {
       child: IconButton(
         icon: provider.timerPlaying
             ? const Icon(Icons.pause)
-            : const Icon(Icons.play_arrow_sharp),
+            : provider.currentState == "BREAK" ||
+                    provider.currentState == "LONGBREAK"
+                ? const Icon(Icons.play_arrow_sharp)
+                : const Icon(Icons.play_arrow_sharp),
         iconSize: 55,
         onPressed: () {
-          provider.timerPlaying
-              ? Provider.of<TimerService>(context, listen: false).pause()
-              : Provider.of<TimerService>(context, listen: false).start();
+          if (provider.timerPlaying) {
+            provider.pause();
+          } else {
+            if (provider.currentState == "BREAK" ||
+                provider.currentState == "LONGBREAK") {
+              provider.startBreak();
+            } else {
+              provider.start();
+            }
+          }
         },
       ),
     );
   }
 }
+
+  //  ? Provider.of<TimerService>(context, listen: false).pause()
+  //             : Provider.of<TimerService>(context, listen: false).start();
