@@ -37,7 +37,7 @@
     },
     "errorMessages":{
         "somethingWentWrong": "Something went wrong. Please try again.",
-        "emailInUse": "Email already in use. Please use a different email or Sign In",
+        "emailInUse": "Email already in use. Please use a different email or Sign",
         "errorMessageLogin": "Wrong username or password. Please try again!",
         "errorMessagePassword": "Passwords do not match. Please try again!"
 
@@ -51,9 +51,19 @@
         "enterEmail": "Enter your email",
         "sendCode": "Send Code"
     },
-    "errorMessage":{
-        "emailRequired": "Email is required",
+    "pomoderoActions":{
+        "startFocus": "Start Focus",
         "passwordRequired": "Password is required"
+    },
+
+    "finishPage":{
+        "goodJob": " 🎉 Good Job!",
+        "congratulations": "Congratulations!",
+        "break": "Break"
+    },
+    "breakTimer":{
+        "stopBreak": "Stop Break"
     }
+
     
 }

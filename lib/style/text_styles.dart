@@ -14,6 +14,11 @@ class PomoderoTextStyles {
     fontWeight: FontWeight.normal,
     color: Colors.grey[800],
   );
+  static final TextStyle titleText = GoogleFonts.nunito(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: textDarkMode,
+  );
 
   static final TextStyle hintTex = GoogleFonts.nunito(
     fontSize: 16,
@@ -27,7 +32,7 @@ class PomoderoTextStyles {
     color: textDarkMode,
   );
   static final TextStyle buttonText = GoogleFonts.nunito(
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: FontWeight.bold,
     color: textDarkMode,
   );
@@ -37,5 +42,22 @@ class PomoderoTextStyles {
     fontWeight: FontWeight.normal,
     color: textDarkMode,
   );
+
+  static final TextStyle pomodoroTimer = GoogleFonts.nunito(
+    fontSize: 96,
+    fontWeight: FontWeight.bold,
+    color: textDarkMode,
+  );
+  static final TextStyle selectTime = GoogleFonts.nunito(
+    fontSize: 38,
+    fontWeight: FontWeight.bold,
+    color: textDarkMode,
+  );
+  static final TextStyle award = GoogleFonts.nunito(
+    fontSize: 38,
+    fontWeight: FontWeight.bold,
+    color: awardColor,
+  );
+
   // Adicione mais estilos conforme necessário...
 }
