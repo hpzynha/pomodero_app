@@ -1,0 +1,32 @@
+List<String> selectableTimes = [
+  "300", // 5 minutes
+  "600", // 10 minutes
+  "900", // 15 minutes
+  "1200", // 20 minutes
+  "1500", // 25 minutes
+  "1800", // 30 minutes
+  "2100", // 35 minutes
+  "2400", // 40 minutes
+  "2700", // 45 minutes
+  "3000", // 50 minutes
+  "3300", // 55 minutes
+  "3600", // 60 minutes
+  "3900", // 65 minutes
+  "4200", // 70 minutes
+  "4500", // 75 minutes
+  "4800", // 80 minutes
+  "5100", // 85 minutes
+  "5400", // 90 minutes
+  "5700", // 95 minutes
+  "6000", // 100 minutes
+  "6300", // 105 minutes
+  "6600", // 110 minutes
+  "6900", // 115 minutes
+  "7200", // 120 minutes
+  "7500", // 125 minutes
+  "7800", // 130 minutes
+  "8100", // 135 minutes
+  "8400", // 140 minutes
+  "8700", // 145 minutes
+  "9000", // 150 minutes
+];

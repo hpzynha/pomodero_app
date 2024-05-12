@@ -2,6 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pomodero_app/style/colors.dart';
 import 'package:pomodero_app/style/text_styles.dart';
+import 'package:pomodero_app/widgets/progress_widget.dart';
+
+import 'package:pomodero_app/widgets/timer_controller.dart';
+import 'package:pomodero_app/widgets/time_options.dart';
+import 'package:pomodero_app/widgets/timer_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -15,7 +20,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: engineeringOrange,
+        backgroundColor: backgoundColorDarkMode,
         title: Text(
           'Pomodero',
           style: PomoderoTextStyles.titleText,
@@ -28,7 +33,30 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: engineeringOrange,
+      backgroundColor: backgoundColorDarkMode,
+      body: SingleChildScrollView(
+        child: Container(
+          alignment: Alignment.center,
+          child: const Column(
+            children: [
+              SizedBox(height: 80),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  TimerWidget(),
+                ],
+              ),
+              SizedBox(height: 25),
+              TimeOptions(),
+              SizedBox(height: 50),
+              TimerController(),
+              SizedBox(height: 50),
+              ProgressWidget(),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
