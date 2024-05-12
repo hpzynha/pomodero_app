@@ -11,25 +11,37 @@ class TimerWidget extends StatelessWidget {
     final provider = Provider.of<TimerService>(context);
     final seconds = provider.currentDuration % 60;
     final minutes = provider.currentDuration ~/ 60;
-    return Row(
+    return Column(
       children: [
         Text(
-          minutes.toString(),
-          style: PomoderoTextStyles.pomodoroTimer,
+          provider.currentState,
+          style: PomoderoTextStyles.titleText,
         ),
-        const SizedBox(width: 5),
-        Text(
-          ':',
-          style: PomoderoTextStyles.pomodoroTimer,
+        Row(
+          children: [
+            Text(
+              minutes == 0
+                  ? "00"
+                  : (minutes < 10)
+                      ? "0${minutes.round()}"
+                      : minutes.round().toString(),
+              style: PomoderoTextStyles.pomodoroTimer,
+            ),
+            const SizedBox(width: 5),
+            Text(
+              ':',
+              style: PomoderoTextStyles.pomodoroTimer,
+            ),
+            const SizedBox(width: 5),
+            Text(
+                seconds == 0
+                    ? "00"
+                    : (seconds < 10)
+                        ? "0${seconds.round()}"
+                        : seconds.round().toString(),
+                style: PomoderoTextStyles.pomodoroTimer),
+          ],
         ),
-        const SizedBox(width: 5),
-        Text(
-            seconds == 0
-                ? "00"
-                : (seconds < 10)
-                    ? "0${seconds.round()}"
-                    : seconds.round().toString(),
-            style: PomoderoTextStyles.pomodoroTimer),
       ],
     );
   }

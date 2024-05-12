@@ -16,6 +16,20 @@ Color onyx = const Color(0xFF353839);
 
 Color springGreen = const Color(0XFF04F16F);
 
+Color darkSpringGreen = const Color(0xFF177245);
+
 Color aerospaceorange = const Color(0xFFFF4F00);
 
 Color awardColor = const Color(0xFFFFD700);
+
+Color azure = const Color(0xFF007FFF);
+
+Color renderColor(String currentState) {
+  if (currentState == "FOCUS") {
+    return backgoundColorDarkMode;
+  } else if (currentState == "LONGBREAK") {
+    return azure;
+  } else {
+    return darkSpringGreen;
+  }
+}

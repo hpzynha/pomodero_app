@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pomodero_app/service/time_service.dart';
 import 'package:pomodero_app/style/colors.dart';
 import 'package:pomodero_app/style/text_styles.dart';
 import 'package:pomodero_app/widgets/progress_widget.dart';
@@ -7,6 +8,7 @@ import 'package:pomodero_app/widgets/progress_widget.dart';
 import 'package:pomodero_app/widgets/timer_controller.dart';
 import 'package:pomodero_app/widgets/time_options.dart';
 import 'package:pomodero_app/widgets/timer_widget.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -17,10 +19,11 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<TimerService>(context);
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: backgoundColorDarkMode,
+        backgroundColor: renderColor(provider.currentState),
         title: Text(
           'Pomodero',
           style: PomoderoTextStyles.titleText,
@@ -29,11 +32,13 @@ class HomePage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.refresh),
             iconSize: 40,
-            onPressed: () {},
+            onPressed: () {
+              Provider.of<TimerService>(context, listen: false).reset();
+            },
           ),
         ],
       ),
-      backgroundColor: backgoundColorDarkMode,
+      backgroundColor: renderColor(provider.currentState),
       body: SingleChildScrollView(
         child: Container(
           alignment: Alignment.center,
