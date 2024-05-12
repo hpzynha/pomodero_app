@@ -6,7 +6,6 @@ import 'package:pomodero_app/style/text_styles.dart';
 import 'package:pomodero_app/widgets/progress_widget.dart';
 
 import 'package:pomodero_app/widgets/timer_controller.dart';
-import 'package:pomodero_app/widgets/time_options.dart';
 import 'package:pomodero_app/widgets/timer_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -42,22 +41,26 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           alignment: Alignment.center,
-          child: const Column(
+          child: Column(
             children: [
-              SizedBox(height: 80),
+              const SizedBox(height: 80),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  TimerWidget(),
+                  GestureDetector(
+                    child: TimerWidget(),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/timerOptionsPage');
+                    },
+                  ),
                 ],
               ),
-              SizedBox(height: 25),
-              TimeOptions(),
-              SizedBox(height: 50),
-              TimerController(),
-              SizedBox(height: 50),
-              ProgressWidget(),
+              const SizedBox(height: 25),
+              const SizedBox(height: 50),
+              const TimerController(),
+              const SizedBox(height: 50),
+              const ProgressWidget(),
             ],
           ),
         ),
